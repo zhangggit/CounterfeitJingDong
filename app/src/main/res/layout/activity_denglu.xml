@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.zhanggang.counterfeitjingdong.view.activity.DengLuActivity">
+
+    <ImageView
+        android:id="@+id/denglu_tuichu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="on_denglu_tuichu"
+        android:padding="18dp"
+        android:src="@drawable/agu"/>
+
+    <TextView
+        android:id="@+id/zhucebeijing"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="京东登陆"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:padding="18dp"/>
+
+    <EditText
+        android:id="@+id/zhanghao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="账号："
+        android:layout_below="@+id/zhucebeijing"
+        android:padding="20dp"
+        />
+
+    <EditText
+        android:id="@+id/mima"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="密码："
+        android:layout_below="@+id/zhanghao"
+        android:padding="20dp"
+        />
+
+    <Button
+        android:id="@+id/denglu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="登陆"
+        android:onClick="on_denglu"
+        android:layout_margin="10dp"
+        android:textSize="20sp"
+        android:background="@drawable/dengluanniu"
+        android:layout_below="@+id/mima"/>
+
+    <TextView
+        android:id="@+id/shoujizhuce"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="手机快速注册"
+        android:padding="10dp"
+        android:onClick="on_shoujizhuce"
+        android:layout_below="@+id/denglu"
+        android:layout_alignParentLeft="true"/>
+
+    <TextView
+        android:id="@+id/wangjimima"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="忘记密码"
+        android:padding="10dp"
+        android:layout_below="@+id/denglu"
+        android:layout_alignParentRight="true"/>
+
+
+    <ImageView
+        android:id="@+id/qqdenglu"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:onClick="on_qqdenglu"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/adw"
+        android:layout_above="@+id/dibuzhengce"/>
+
+    <TextView
+        android:id="@+id/dibuzhengce"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:text="登陆即已代表您已同意京东隐私政策"/>
+
+</RelativeLayout>

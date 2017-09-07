@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.zhanggang.counterfeitjingdong.view.activity.MainActivity">
+
+    <FrameLayout
+        android:id="@+id/fragment_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"/>
+
+    <RadioGroup
+        android:id="@+id/radiogroup"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_weight="8">
+        <RadioButton
+            android:id="@+id/radiobutton_shouye"
+            android:button="@null"
+            android:layout_weight="1"
+            android:background="@drawable/select_shouye"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:checked="true"/>
+        <RadioButton
+            android:id="@+id/radiobutton_fenlei"
+            android:button="@null"
+            android:background="@drawable/select_fenlei"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        <RadioButton
+            android:id="@+id/radiobutton_faxian"
+            android:button="@null"
+            android:background="@drawable/select_faxian"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        <RadioButton
+            android:id="@+id/radiobutton_gouwuche"
+            android:button="@null"
+            android:background="@drawable/select_gouwuche"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        <RadioButton
+            android:id="@+id/radiobutton_wode"
+            android:button="@null"
+            android:background="@drawable/select_wode"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </RadioGroup>
+
+
+</LinearLayout>

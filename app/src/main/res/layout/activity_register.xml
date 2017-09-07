@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.zhanggang.counterfeitjingdong.view.activity.RegisterActivity">
+
+    <RelativeLayout
+        android:id="@+id/relativelayout1_zhuce"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp">
+        <TextView
+            android:id="@+id/zhuce_beijing"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="14dp"
+            android:text="手机快速注册"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:onClick="on_zhuce_tuichu"
+            android:layout_centerVertical="true"
+            android:background="@drawable/aa0"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:text="企业注册"/>
+
+    </RelativeLayout>
+    <TextView
+        android:id="@+id/textview1_zhuce"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#635f60"
+        android:layout_below="@+id/relativelayout1_zhuce"/>
+
+    <LinearLayout
+        android:id="@+id/linearlayout_zhuce"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:layout_below="@+id/textview1_zhuce">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="7"
+            android:gravity="center_vertical"
+            android:text="+86"/>
+        <EditText
+            android:id="@+id/edtext_shoujihao"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:hint="请输入手机号"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/linearlayout2_zhuce"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearlayout_zhuce"
+        android:padding="10dp">
+        <Button
+            android:id="@+id/xiayibu_zhuce"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="下一步"
+            android:onClick="on_xiayibu_zhuce"
+            android:background="@drawable/dengluanniu"
+            />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="遇到问题？您可以联系客服"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@+id/linearlayout2_zhuce"/>
+
+
+</RelativeLayout>
