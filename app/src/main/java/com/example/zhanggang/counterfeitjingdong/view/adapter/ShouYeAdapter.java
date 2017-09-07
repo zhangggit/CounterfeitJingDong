@@ -7,7 +7,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import java.util.List;
 
 /**
- * 类作用：
+ * 类作用：首页 Fragment适配器
  * 时  间：2017/9/6 - 14:54.
  * 创建人：张刚
  */

@@ -44,13 +44,15 @@ public class GouWuCheRecyclerAdapter extends XRecyclerView.Adapter<GouWuCheRecyc
         return list.size();
     }
 
-    class ViewHolder extends XRecyclerView.ViewHolder{
-        @BindView(R.id.gouwuche_image)ImageView imageView;
-        @BindView(R.id.gouwuche_name)TextView name;
+    class ViewHolder extends XRecyclerView.ViewHolder {
+        @BindView(R.id.gouwuche_image)
+        ImageView imageView;
+        @BindView(R.id.gouwuche_name)
+        TextView name;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            ButterKnife.bind(this,itemView);
+            ButterKnife.bind(this, itemView);
         }
     }
 }

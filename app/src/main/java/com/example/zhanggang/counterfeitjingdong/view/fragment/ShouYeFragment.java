@@ -15,6 +15,11 @@ import com.youth.banner.Banner;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 类作用：首页 第一个页面
+ * 时  间：2017/9/7 - 15:30.
+ * 创建人：张刚
+ */
 public class ShouYeFragment extends Fragment {
 
     List<String> images = new ArrayList<>();
@@ -27,7 +32,6 @@ public class ShouYeFragment extends Fragment {
 
         setImages();
         setBanner(view);
-
 
 
         return view;

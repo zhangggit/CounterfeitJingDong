@@ -14,7 +14,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * 类作用：
+ * 类作用：发现页面  每个item的适配器
  * 时  间：2017/9/7 - 17:06.
  * 创建人：张刚
  */
@@ -29,7 +29,7 @@ public class FaXianRecyclerAdapter extends XRecyclerView.Adapter<FaXianRecyclerA
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.faxian_item,parent,false));
+        return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.faxian_item, parent, false));
     }
 
     @Override
@@ -42,12 +42,13 @@ public class FaXianRecyclerAdapter extends XRecyclerView.Adapter<FaXianRecyclerA
         return list.size();
     }
 
-    class ViewHolder extends XRecyclerView.ViewHolder{
+    class ViewHolder extends XRecyclerView.ViewHolder {
         @BindView(R.id.faxian_item_textview)
         TextView textView;
+
         public ViewHolder(View itemView) {
             super(itemView);
-            ButterKnife.bind(this,itemView);
+            ButterKnife.bind(this, itemView);
         }
     }
 }

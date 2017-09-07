@@ -20,6 +20,11 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+/**
+ * 类作用：购物车页面
+ * 时  间：2017/9/7 - 15:30.
+ * 创建人：张刚
+ */
 public class GouWuCheFragment extends Fragment implements XRecyclerView.LoadingListener {
 
     @BindView(R.id.recyclerview_gouwuche)
@@ -48,7 +53,7 @@ public class GouWuCheFragment extends Fragment implements XRecyclerView.LoadingL
 
     private void init() {
         for (int i = 0; i < 100; i++) {
-            list.add("名字"+i);
+            list.add("名字" + i);
         }
     }
 

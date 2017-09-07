@@ -10,12 +10,17 @@ import android.view.ViewGroup;
 
 import com.example.zhanggang.counterfeitjingdong.R;
 
+/**
+ * 类作用：分类页面
+ * 时  间：2017/9/7 - 15:30.
+ * 创建人：张刚
+ */
 public class FenLeiFragment extends Fragment {
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.activity_fen_lei_fragment,container,false);
+        View view = inflater.inflate(R.layout.activity_fen_lei_fragment, container, false);
 
         return view;
     }

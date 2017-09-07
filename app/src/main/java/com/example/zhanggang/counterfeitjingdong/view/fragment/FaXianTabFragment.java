@@ -19,7 +19,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * 类作用：
+ * 类作用：发现页面  每个fragment 公用的
  * 时  间：2017/9/6 - 15:35.
  * 创建人：张刚
  */
@@ -34,8 +34,8 @@ public class FaXianTabFragment extends Fragment implements XRecyclerView.Loading
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.faxiantab_fragment,container,false);
-        ButterKnife.bind(this,view);
+        View view = inflater.inflate(R.layout.faxiantab_fragment, container, false);
+        ButterKnife.bind(this, view);
 
         init();
 
@@ -53,7 +53,7 @@ public class FaXianTabFragment extends Fragment implements XRecyclerView.Loading
 
     private void init() {
         for (int i = 0; i < 20; i++) {
-            list.add("数据"+i);
+            list.add("数据" + i);
         }
     }
 

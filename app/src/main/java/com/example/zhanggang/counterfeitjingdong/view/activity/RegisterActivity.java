@@ -4,7 +4,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.example.zhanggang.counterfeitjingdong.R;
 import com.example.zhanggang.counterfeitjingdong.model.UrlUtile;
@@ -17,6 +16,11 @@ import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
 
+/**
+ * 类作用：注册页面  注册手机号
+ * 时  间：2017/9/7 - 15:30.
+ * 创建人：张刚
+ */
 public class RegisterActivity extends AppCompatActivity {
 
     @BindView(R.id.edtext_shoujihao)
@@ -30,13 +34,15 @@ public class RegisterActivity extends AppCompatActivity {
 
 
     }
+
     //退出注册
     public void on_zhuce_tuichu(View view) {
         finish();
     }
+
     //下一步
     public void on_xiayibu_zhuce(View view) {
-        String urlPath="http://169.254.60.203/mobile/index.php?op=register&username="+editText.getText().toString();
+        String urlPath = "http://169.254.60.203/mobile/index.php?op=register&username=" + editText.getText().toString();
 
         UrlUtile.sendOkHttpRequest(urlPath, new Callback() {
             @Override
@@ -47,13 +53,6 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 String string = response.body().string();
-
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        Toast.makeText(RegisterActivity.this, "成功", Toast.LENGTH_SHORT).show();
-                    }
-                });
             }
         });
     }

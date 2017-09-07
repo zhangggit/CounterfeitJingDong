@@ -24,6 +24,12 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+
+/**
+ * 类作用：主类 fragment radiogroup联动
+ * 时  间：2017/9/7 - 15:30.
+ * 创建人：张刚
+ */
 public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.radiogroup)
@@ -59,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, @IdRes int i) {
-                switch (i){
+                switch (i) {
                     case R.id.radiobutton_shouye:
                         getSupportFragmentManager().beginTransaction().show(shouYeFragment)
                                 .hide(fenLeiFragment).hide(faXianFtagment).hide(gouWuCheFragment).hide(woDeFragment).commit();

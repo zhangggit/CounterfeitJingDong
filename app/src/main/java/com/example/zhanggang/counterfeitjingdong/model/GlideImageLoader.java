@@ -7,7 +7,7 @@ import com.bumptech.glide.Glide;
 import com.youth.banner.loader.ImageLoader;
 
 /**
- * 类作用：
+ * 类作用：首页Banner轮播的 图片加载器
  * 时  间：2017/9/7 - 15:30.
  * 创建人：张刚
  */

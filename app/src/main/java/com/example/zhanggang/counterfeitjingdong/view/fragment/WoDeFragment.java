@@ -12,15 +12,20 @@ import android.widget.ImageView;
 import com.example.zhanggang.counterfeitjingdong.R;
 import com.example.zhanggang.counterfeitjingdong.view.activity.DengLuActivity;
 
-
+/**
+ * 类作用：我的页面
+ * 时  间：2017/9/7 - 15:30.
+ * 创建人：张刚
+ */
 public class WoDeFragment extends Fragment {
 
     ImageView imageView;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.activity_wo_de_fragment,container,false);
-        imageView=view.findViewById(R.id.touxiang);
+        View view = inflater.inflate(R.layout.activity_wo_de_fragment, container, false);
+        imageView = view.findViewById(R.id.touxiang);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
