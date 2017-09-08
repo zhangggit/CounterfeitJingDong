@@ -2,18 +2,26 @@ package com.example.zhanggang.counterfeitjingdong.view.fragment;
 
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 import com.example.zhanggang.counterfeitjingdong.R;
 import com.example.zhanggang.counterfeitjingdong.model.GlideImageLoader;
+import com.example.zhanggang.counterfeitjingdong.view.adapter.ShouYeViewPagerAdapter;
 import com.youth.banner.Banner;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * 类作用：首页 第一个页面
@@ -22,23 +30,59 @@ import java.util.List;
  */
 public class ShouYeFragment extends Fragment {
 
-    List<String> images = new ArrayList<>();
-
+    private Banner banner;
+    @BindView(R.id.viewpager_shouye)
+    ViewPager viewPager;
+    @BindView(R.id.readiogroup_shouye)
+    RadioGroup radioGroup;
+    private List<String> images = new ArrayList<>();
+    private List<Fragment> list = new ArrayList<>();
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_shou_ye_fragment, container, false);
+        ButterKnife.bind(this,view);
 
         setImages();
         setBanner(view);
+        setFragment();
+        //默认选中
+        RadioButton radioButton = (RadioButton) radioGroup.getChildAt(0);
+        radioButton.setChecked(true);
+        //viewpager适配器
+        ShouYeViewPagerAdapter viewPagerAdapter = new ShouYeViewPagerAdapter(getActivity().getSupportFragmentManager(),list);
+        viewPager.setAdapter(viewPagerAdapter);
+        //viewpager滑动监听
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
+            }
 
+            @Override
+            public void onPageSelected(int position) {
+                RadioButton childAt_but = (RadioButton) radioGroup.getChildAt(position);
+                childAt_but.setChecked(true);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
         return view;
+    }
+
+    private void setFragment() {
+        SYViewPagerFragment1 syViewPagerFragment1 = new SYViewPagerFragment1();
+        SYViewPagerFragment2 syViewPagerFragment2 = new SYViewPagerFragment2();
+        list.add(syViewPagerFragment1);
+        list.add(syViewPagerFragment2);
     }
     //设置Banner轮播
     private void setBanner(View view) {
-        Banner banner = view.findViewById(R.id.banner);
+        banner = view.findViewById(R.id.banner);
         //设置图片加载器
         banner.setImageLoader(new GlideImageLoader());
         banner.setImages(images);
