@@ -56,7 +56,7 @@ public class FaXianTabFragment extends Fragment implements XRecyclerView.Loading
             list.add("数据" + i);
         }
     }
-
+    //下拉刷新
     @Override
     public void onRefresh() {
         list.clear();
@@ -64,7 +64,7 @@ public class FaXianTabFragment extends Fragment implements XRecyclerView.Loading
         adapter.notifyDataSetChanged();
         xRecyclerView.refreshComplete();
     }
-
+    //加载数据
     @Override
     public void onLoadMore() {
         init();

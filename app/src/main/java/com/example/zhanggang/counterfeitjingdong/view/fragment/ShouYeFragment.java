@@ -36,7 +36,7 @@ public class ShouYeFragment extends Fragment {
 
         return view;
     }
-
+    //设置Banner轮播
     private void setBanner(View view) {
         Banner banner = view.findViewById(R.id.banner);
         //设置图片加载器
@@ -48,7 +48,7 @@ public class ShouYeFragment extends Fragment {
         //banner设置方法全部调用完毕时最后调用
         banner.start();
     }
-
+    //设置图片集合
     private void setImages() {
         images.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1504780311979&di=b34a790a363061b61ebbdc4cdcb05526&imgtype=0&src=http%3A%2F%2Fpicyun.90sheji.com%2Fdesign%2F00%2F03%2F49%2F64%2Fs_1024_54ed221172712.jpg");
         images.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1504780311979&di=881b57bc4fe86eed1b6bbbef701d6e9d&imgtype=0&src=http%3A%2F%2Fp7.zbjimg.com%2Fservice%2F2016-05%2F07%2Fservice%2F572d53d6aa29c.jpg");

@@ -22,6 +22,8 @@ public class FenLeiFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_fen_lei_fragment, container, false);
 
+
+
         return view;
     }
 }

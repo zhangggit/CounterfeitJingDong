@@ -56,7 +56,7 @@ public class GouWuCheFragment extends Fragment implements XRecyclerView.LoadingL
             list.add("名字" + i);
         }
     }
-
+    //下拉刷新
     @Override
     public void onRefresh() {
         list.clear();
@@ -64,7 +64,7 @@ public class GouWuCheFragment extends Fragment implements XRecyclerView.LoadingL
         adapter.notifyDataSetChanged();
         recyclerView.refreshComplete();
     }
-
+    //加载更多
     @Override
     public void onLoadMore() {
         init();

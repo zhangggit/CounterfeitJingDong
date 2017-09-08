@@ -34,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.radiogroup)
     RadioGroup radioGroup;
-
     private ShouYeFragment shouYeFragment;
     private FenLeiFragment fenLeiFragment;
     private FaXianFtagment faXianFtagment;
