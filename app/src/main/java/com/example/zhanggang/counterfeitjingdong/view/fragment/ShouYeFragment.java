@@ -47,6 +47,14 @@ public class ShouYeFragment extends Fragment {
         setImages();
         setBanner(view);
         setFragment();
+
+        return view;
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
         //默认选中
         RadioButton radioButton = (RadioButton) radioGroup.getChildAt(0);
         radioButton.setChecked(true);
@@ -71,7 +79,6 @@ public class ShouYeFragment extends Fragment {
 
             }
         });
-        return view;
     }
 
     private void setFragment() {

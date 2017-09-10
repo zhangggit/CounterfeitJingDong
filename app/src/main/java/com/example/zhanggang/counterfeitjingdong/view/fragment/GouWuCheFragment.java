@@ -1,5 +1,6 @@
 package com.example.zhanggang.counterfeitjingdong.view.fragment;
 
+import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.zhanggang.counterfeitjingdong.R;
+import com.example.zhanggang.counterfeitjingdong.view.activity.GouWuCheJiShuActivity;
 import com.example.zhanggang.counterfeitjingdong.view.adapter.GouWuCheRecyclerAdapter;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 
@@ -38,6 +40,14 @@ public class GouWuCheFragment extends Fragment implements XRecyclerView.LoadingL
         View view = inflater.inflate(R.layout.activity_gou_wu_che_fragment, container, false);
         ButterKnife.bind(this, view);
 
+
+        return view;
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
         init();
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 2);
@@ -47,8 +57,16 @@ public class GouWuCheFragment extends Fragment implements XRecyclerView.LoadingL
         recyclerView.setAdapter(adapter);
 
         recyclerView.setLoadingListener(this);
+        //点击跳转购物车计数页
+        adapter.setOnClickItemLener(new GouWuCheRecyclerAdapter.onClickItemLener() {
+            @Override
+            public void setOnClickItemLener(View view, int position) {
+                Intent intent = new Intent(getActivity(), GouWuCheJiShuActivity.class);
+                startActivity(intent);
+            }
+        });
 
-        return view;
+
     }
 
     private void init() {

@@ -2,17 +2,24 @@ package com.example.zhanggang.counterfeitjingdong.view.fragment;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.support.annotation.Nullable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.BitmapImageViewTarget;
 import com.example.zhanggang.counterfeitjingdong.R;
 import com.example.zhanggang.counterfeitjingdong.view.activity.DengLuActivity;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.display.CircleBitmapDisplayer;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -52,7 +59,12 @@ public class WoDeFragment extends Fragment {
         super.onResume();
         //获取存入的QQ头像
         String touxiang_huichuan = getActivity().getSharedPreferences("name", Context.MODE_PRIVATE).getString("key", "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1504799012955&di=e73ef8488600c38a242ed28400585010&imgtype=0&src=http%3A%2F%2Fwww.wxdh001.com%2FPublic%2Fnews%2Fimage%2F20130614%2F20130614083354_38816.jpg");
-        Glide.with(this).load(touxiang_huichuan).into(touxiang);
+        //imageloader 将头像做圆形
+        DisplayImageOptions options=new DisplayImageOptions.Builder()
+                .showImageOnFail(R.mipmap.ic_launcher_round)  // 设置图片加载或解码过程中发生错误显示的图片
+                .displayer(new CircleBitmapDisplayer())
+                .build();
+        ImageLoader.getInstance().displayImage(touxiang_huichuan,touxiang,options);
     }
 
 }

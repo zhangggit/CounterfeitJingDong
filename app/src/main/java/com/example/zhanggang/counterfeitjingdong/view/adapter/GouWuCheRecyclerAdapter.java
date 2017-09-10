@@ -23,22 +23,39 @@ import butterknife.ButterKnife;
 public class GouWuCheRecyclerAdapter extends XRecyclerView.Adapter<GouWuCheRecyclerAdapter.ViewHolder> {
 
     List<String> list;
+    onClickItemLener onClickItemLener;
 
     public GouWuCheRecyclerAdapter(List<String> list) {
         this.list = list;
     }
 
+    public void setOnClickItemLener(GouWuCheRecyclerAdapter.onClickItemLener onClickItemLener) {
+        this.onClickItemLener = onClickItemLener;
+    }
+
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(final ViewGroup parent, int viewType) {
         View inflate = LayoutInflater.from(parent.getContext()).inflate(R.layout.gouwuche_recycler_item, parent, false);
         return new ViewHolder(inflate);
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(ViewHolder holder, final int position) {
         holder.name.setText(list.get(position));
+        //点击事件 跳转购物车计算页面
+        holder.imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (onClickItemLener!=null){
+                    onClickItemLener.setOnClickItemLener(view,position);
+                }
+            }
+        });
     }
 
+    public interface onClickItemLener{
+        void setOnClickItemLener(View view,int position);
+    }
     @Override
     public int getItemCount() {
         return list.size();

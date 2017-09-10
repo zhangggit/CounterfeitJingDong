@@ -2,6 +2,8 @@ package com.example.zhanggang.counterfeitjingdong.model;
 
 import android.app.Application;
 
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.umeng.socialize.PlatformConfig;
 import com.umeng.socialize.UMShareAPI;
 
@@ -21,6 +23,9 @@ public class AppL extends Application {
     public void onCreate() {
         super.onCreate();
         UMShareAPI.get(this);
+        ImageLoaderConfiguration configuration=new ImageLoaderConfiguration.Builder(this)
+                .build();
+        ImageLoader.getInstance().init(configuration);
     }
 
 }

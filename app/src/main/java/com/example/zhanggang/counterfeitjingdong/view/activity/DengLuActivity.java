@@ -39,6 +39,8 @@ public class DengLuActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         SharedPreferences sp = getSharedPreferences("name",MODE_PRIVATE);
         edit = sp.edit();
+
+
     }
     //点击登陆
     public void on_denglu(View view) {
