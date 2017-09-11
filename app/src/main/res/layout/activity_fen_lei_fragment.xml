@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,6 +8,7 @@
     tools:context="com.example.zhanggang.counterfeitjingdong.view.fragment.FenLeiFragment">
 
     <RelativeLayout
+        android:id="@+id/fenlei_title"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         >
@@ -34,9 +35,27 @@
 
     </RelativeLayout>
     <TextView
+        android:id="@+id/fenlei_henxian"
         android:layout_width="match_parent"
         android:layout_height="3dp"
+        android:layout_below="@+id/fenlei_title"
         android:background="#4d514f"/>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fenlei_henxian"
+        android:orientation="horizontal">
+        <ListView
+            android:id="@+id/main_left_rv"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"/>
 
-</LinearLayout>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/main_right_rv"
+            android:background="#FFF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+</RelativeLayout>
