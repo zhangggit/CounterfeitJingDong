@@ -10,6 +10,5 @@
         android:padding="10dp"
         android:text="111"
         android:gravity="center"
-        android:textColor="@color/left_list_select"
         android:textSize="18sp" />
 </LinearLayout>

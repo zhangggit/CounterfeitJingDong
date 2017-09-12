@@ -12,14 +12,29 @@
         android:layout_marginRight="10dp"
         android:src="@mipmap/ic_launcher" />
 
-    <TextView
-        android:id="@+id/shangping"
+    <LinearLayout
+        android:id="@+id/gouwuche_linearlayout1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
         android:layout_centerVertical="true"
-        android:layout_marginLeft="10dp"
         android:layout_toRightOf="@id/gouwujishu_imageview"
-        android:text="商品" />
+        >
+        <TextView
+            android:id="@+id/shangping"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:text="商品" />
+        <TextView
+            android:id="@+id/jiage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:text="价格￥：10" />
+    </LinearLayout>
 
     <CheckBox
         android:id="@+id/check_box"

@@ -45,7 +45,8 @@ public class FaXianRecyclerAdapter extends XRecyclerView.Adapter<FaXianRecyclerA
     class ViewHolder extends XRecyclerView.ViewHolder {
         @BindView(R.id.faxian_item_textview)
         TextView textView;
-
+        @BindView(R.id.faxian_item_textview2)
+        TextView textView2;
         public ViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);

@@ -30,6 +30,8 @@ public class GouWuCheJiShuActivity extends AppCompatActivity implements XRecycle
     private MyJiShuAdapter adapter;
     @BindView(R.id.showTv)
     TextView showTv;
+    @BindView(R.id.showjiage)
+    TextView showjiage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +44,7 @@ public class GouWuCheJiShuActivity extends AppCompatActivity implements XRecycle
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
 
-        adapter = new MyJiShuAdapter(list,hashMap,this,showTv);
+        adapter = new MyJiShuAdapter(list,hashMap,this);
         recyclerView.setAdapter(adapter);
 
         //全选
@@ -57,6 +59,7 @@ public class GouWuCheJiShuActivity extends AppCompatActivity implements XRecycle
                     }
                 }
                 showTv.setText("个数："+count+"");//赋值
+                showjiage.setText("价格："+count*10+"");
             }
         });
         //反选
@@ -77,13 +80,14 @@ public class GouWuCheJiShuActivity extends AppCompatActivity implements XRecycle
                         i++;
                     }
                 }
-                showTv.setText("个数："+i+"");//赋值
+                showTv.setText("个数："+i);//赋值
+                showjiage.setText("价格："+i*10+"");
             }
         });
     }
 
     private void init() {
-        for (int i = 0; i < 50; i++) {
+        for (int i = 0; i < 10; i++) {
             list.add("商品" + i);
             hashMap.put(i, false); //默认全不选中
         }

@@ -30,18 +30,16 @@ public class MyJiShuAdapter extends RecyclerView.Adapter<MyJiShuAdapter.ViewHold
     List<String> list;
     HashMap<Integer, Boolean> hashMap;
     Context context;
-    TextView shouTv;
 
     countener counter1;
     public void setCounter1(countener counter1) {
         this.counter1 = counter1;
     }
 
-    public MyJiShuAdapter(List<String> list, HashMap<Integer, Boolean> hashMap, Context context, TextView shouTv) {
+    public MyJiShuAdapter(List<String> list, HashMap<Integer, Boolean> hashMap, Context context) {
         this.list = list;
         this.hashMap = hashMap;
         this.context = context;
-        this.shouTv = shouTv;
     }
 
     @Override
