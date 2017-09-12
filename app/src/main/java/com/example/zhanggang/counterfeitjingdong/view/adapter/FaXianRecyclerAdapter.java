@@ -1,11 +1,15 @@
 package com.example.zhanggang.counterfeitjingdong.view.adapter;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.zhanggang.counterfeitjingdong.R;
+import com.example.zhanggang.counterfeitjingdong.model.bean.FaXianBean;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 
 import java.util.List;
@@ -21,9 +25,11 @@ import butterknife.ButterKnife;
 
 public class FaXianRecyclerAdapter extends XRecyclerView.Adapter<FaXianRecyclerAdapter.ViewHolder> {
 
-    List<String> list;
+    Context context;
+    List<FaXianBean.DataBean.ProductsBean> list;
 
-    public FaXianRecyclerAdapter(List<String> list) {
+    public FaXianRecyclerAdapter(Context context,List<FaXianBean.DataBean.ProductsBean> list) {
+        this.context=context;
         this.list = list;
     }
 
@@ -34,7 +40,10 @@ public class FaXianRecyclerAdapter extends XRecyclerView.Adapter<FaXianRecyclerA
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.textView.setText(list.get(position));
+        //赋值
+        holder.name.setText(list.get(position).name);
+        holder.jiesao.setText(list.get(position).short_description);
+        Glide.with(context).load(list.get(position).image_small).into(holder.image);
     }
 
     @Override
@@ -43,10 +52,12 @@ public class FaXianRecyclerAdapter extends XRecyclerView.Adapter<FaXianRecyclerA
     }
 
     class ViewHolder extends XRecyclerView.ViewHolder {
-        @BindView(R.id.faxian_item_textview)
-        TextView textView;
+        @BindView(R.id.faxian_item_textview_name)
+        TextView name;
         @BindView(R.id.faxian_item_textview2)
-        TextView textView2;
+        TextView jiesao;
+        @BindView(R.id.faxian_item_image)
+        ImageView image;
         public ViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);

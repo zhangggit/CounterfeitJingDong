@@ -1,13 +1,17 @@
 package com.example.zhanggang.counterfeitjingdong.view.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.zhanggang.counterfeitjingdong.R;
+import com.example.zhanggang.counterfeitjingdong.model.bean.FenLeiBean;
+import com.example.zhanggang.counterfeitjingdong.model.bean.FenLeiBean2;
 
 import java.util.List;
 
@@ -18,22 +22,22 @@ import java.util.List;
  */
 
 public class FenLeiGridViewAdapter extends BaseAdapter {
-    Context context;
-    List<String> list;
 
-    public FenLeiGridViewAdapter(Context context, List<String> list) {
+    Context context;
+    List<FenLeiBean.DatasBean.ClassListBean> fenleiList;
+    public FenLeiGridViewAdapter(Context context,List<FenLeiBean.DatasBean.ClassListBean> fenleiList) {
         this.context = context;
-        this.list = list;
+        this.fenleiList=fenleiList;
     }
 
     @Override
     public int getCount() {
-        return list.size();
+        return fenleiList.size();
     }
 
     @Override
     public Object getItem(int i) {
-        return list.get(i);
+        return fenleiList.get(i);
     }
 
     @Override
@@ -48,11 +52,16 @@ public class FenLeiGridViewAdapter extends BaseAdapter {
             view=View.inflate(context, R.layout.fenlei_right_grid_item,null);
             holder=new ViewHolder();
             holder.textView=view.findViewById(R.id.gridview_text);
+            holder.imageView=view.findViewById(R.id.gridview_image);
             view.setTag(holder);
         }else {
             holder= (ViewHolder) view.getTag();
         }
-        holder.textView.setText(list.get(i));
+        holder.textView.setText(fenleiList.get(i).gc_name);
+        String imagestring = fenleiList.get(i).image;
+        String replaceAll = imagestring.replaceAll("127.0.0.1", "169.254.60.203");
+        Log.e("TAG", "getView: "+replaceAll);
+//        Glide.with(context).load(replaceAll).into(holder.imageView);
         return view;
     }
     class ViewHolder{

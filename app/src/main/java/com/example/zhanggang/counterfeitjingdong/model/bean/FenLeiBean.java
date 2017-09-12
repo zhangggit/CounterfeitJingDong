@@ -53,6 +53,22 @@ public class FenLeiBean {
             public String text;
             public String type_id;
             public String type_name;
+
+            public String getImage() {
+                return image;
+            }
+
+            public void setImage(String image) {
+                this.image = image;
+            }
+
+            public String getGc_id() {
+                return gc_id;
+            }
+
+            public void setGc_id(String gc_id) {
+                this.gc_id = gc_id;
+            }
         }
     }
 }

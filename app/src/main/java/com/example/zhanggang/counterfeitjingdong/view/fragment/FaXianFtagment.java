@@ -10,10 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-
 import com.example.zhanggang.counterfeitjingdong.R;
 import com.library.zxing.activity.QRCodeScanFragment;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -38,10 +36,8 @@ public class FaXianFtagment extends QRCodeScanFragment {
         View view = inflater.inflate(R.layout.activity_fa_xian_ftagment, container, false);
         ButterKnife.bind(this, view);
 
-
         return view;
     }
-
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {

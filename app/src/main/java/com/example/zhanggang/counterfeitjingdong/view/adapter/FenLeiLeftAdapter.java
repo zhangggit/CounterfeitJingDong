@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.zhanggang.counterfeitjingdong.R;
+import com.example.zhanggang.counterfeitjingdong.model.bean.FenLeiBean;
 
 import java.util.List;
 
@@ -24,9 +25,9 @@ public class FenLeiLeftAdapter extends BaseAdapter{
     private int mCurrentItem=0;
     private boolean isClick=false;
     Context context;
-    List<String> list;
+    List<FenLeiBean.DatasBean.ClassListBean> list;
 
-    public FenLeiLeftAdapter(Context context, List<String> list) {
+    public FenLeiLeftAdapter(Context context, List<FenLeiBean.DatasBean.ClassListBean> list) {
         this.context = context;
         this.list = list;
     }
@@ -57,7 +58,7 @@ public class FenLeiLeftAdapter extends BaseAdapter{
         }else {
             holder= (ViewHolder) view.getTag();
         }
-        holder.textView.setText(list.get(i));
+        holder.textView.setText(list.get(i).gc_name);
 
         if (mCurrentItem==i&&isClick){  //选中
             view.setBackgroundColor(Color.parseColor("#3F51B5"));

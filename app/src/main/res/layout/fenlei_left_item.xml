@@ -7,7 +7,7 @@
         android:id="@+id/fenlei_item_zuo_textview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
+        android:padding="13dp"
         android:text="111"
         android:gravity="center"
         android:textSize="18sp" />

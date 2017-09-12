@@ -3,28 +3,34 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
+
     <ImageView
         android:id="@+id/faxian_item_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
+        android:layout_marginRight="20dp"
         android:src="@drawable/amr"/>
+
+
+
     <TextView
-        android:id="@+id/faxian_item_textview"
-        android:layout_width="wrap_content"
+        android:id="@+id/faxian_item_textview_name"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:textSize="18sp"
+        android:textSize="20sp"
         android:gravity="center"
         android:text="名字"/>
+
     <TextView
         android:id="@+id/faxian_item_textview2"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:gravity="center"
-        android:layout_below="@+id/faxian_item_textview"
+        android:layout_below="@+id/faxian_item_textview_name"
         android:text="介绍"/>
+
+
 
 </RelativeLayout>

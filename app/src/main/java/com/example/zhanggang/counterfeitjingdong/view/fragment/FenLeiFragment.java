@@ -11,15 +11,25 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
+
 import com.example.zhanggang.counterfeitjingdong.R;
+import com.example.zhanggang.counterfeitjingdong.model.UrlUtile;
+import com.example.zhanggang.counterfeitjingdong.model.bean.FenLeiBean;
+import com.example.zhanggang.counterfeitjingdong.model.bean.FenLeiBean2;
 import com.example.zhanggang.counterfeitjingdong.view.adapter.FenLeiLeftAdapter;
 import com.example.zhanggang.counterfeitjingdong.view.adapter.FenLeiRightAdapter;
+import com.google.gson.Gson;
 import com.library.zxing.activity.QRCodeScanFragment;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Response;
 
 /**
  * 类作用：分类页面
@@ -32,32 +42,43 @@ public class FenLeiFragment extends QRCodeScanFragment {
     ImageView on_erweima_fenlei;
     @BindView(R.id.main_left_rv)
     ListView listView;
-    List<String> list = new ArrayList<>();
     @BindView(R.id.main_right_rv)
     RecyclerView recyclerView;
-    List<String> list1 = new ArrayList<>();
-    List<String> list2 = new ArrayList<>();
+//    List<String> list1 = new ArrayList<>();
+//    List<String> list2 = new ArrayList<>();
     private FenLeiRightAdapter rightAdapter;
     private FenLeiLeftAdapter leftAdapter;
+
+    String zuoPath="http://169.254.60.203/mobile/index.php?act=goods_class";
+    String zuoPath2="http://169.254.60.203/mobile/index.php?act=goods_class&gc_id=6";
+    List<FenLeiBean.DatasBean.ClassListBean> fenleiList = new ArrayList<>();
+    List<String> fenleiIDList = new ArrayList<>();
+    List<FenLeiBean2.DatasBean.ClassListBean> fenleiList2 = new ArrayList<>();
+
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_fen_lei_fragment, container, false);
-        ButterKnife.bind(this,view);
+        ButterKnife.bind(this, view);
 
-        init();
+        //网络请求 获取左边listview的名字
+        initDataLeft();
+        initDataLeft2();
+
         //左边listview
-        leftAdapter = new FenLeiLeftAdapter(getActivity(), list);
+        leftAdapter = new FenLeiLeftAdapter(getActivity(), fenleiList);
         listView.setAdapter(leftAdapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                if (i%2==0){
-                   rightAdapter = new FenLeiRightAdapter(getActivity(),list1);
+
+
+                if (i % 2 == 0) {
+                    rightAdapter = new FenLeiRightAdapter(getActivity(), fenleiList2,fenleiList);
                     recyclerView.setAdapter(rightAdapter);
-                }else{
-                    rightAdapter= new FenLeiRightAdapter(getActivity(),list2);
+                } else {
+                    rightAdapter = new FenLeiRightAdapter(getActivity(), fenleiList2,fenleiList);
                     recyclerView.setAdapter(rightAdapter);
                 }
                 rightAdapter.notifyDataSetChanged();
@@ -66,41 +87,64 @@ public class FenLeiFragment extends QRCodeScanFragment {
                 leftAdapter.notifyDataSetChanged();
             }
         });
-        init1();
-        init2();
+//        init1();
+//        init2();
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(linearLayoutManager);
-        rightAdapter = new FenLeiRightAdapter(getActivity(),list1);
+        rightAdapter = new FenLeiRightAdapter(getActivity(), fenleiList2,fenleiList);
         recyclerView.setAdapter(rightAdapter);
 
         return view;
     }
+    private void initDataLeft2() {
+        UrlUtile.sendOkHttpRequest(zuoPath2, new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
 
-    private void init1() {
-        for (int i = 0; i < 10; i++) {
-            list1.add("数据"+i);
-        }
-    }
-    private void init2() {
-        for (int i = 0; i < 10; i++) {
-            list2.add("不一样的数据"+i);
-        }
-    }
+            }
 
-    //添加左边listview的数据
-    private void init() {
-        list.add("推荐分类");list.add("京东超市");list.add("国际名牌");list.add("奢侈品");list.add("全球购");list.add("男装");
-        list.add("女装");list.add("男鞋");list.add("女鞋");list.add("内衣配饰");list.add("箱包手货");list.add("美妆个护");
-        list.add("钟表珠宝");list.add("手机数码");list.add("电脑办公");list.add("家用电器");list.add("食品生鲜");list.add("酒水饮料");
-        list.add("母婴童装");list.add("玩具乐器");list.add("医药保健");list.add("计生情趣");list.add("运动户外");list.add("汽车用品");
-        list.add("家居厨具");list.add("家具家装");list.add("礼品鲜花");list.add("宠物生活");list.add("生活旅行");list.add("图书音响");
-        list.add("邮币");list.add("农资绿植");list.add("特产馆");list.add("京东金融");list.add("拍卖");list.add("二手商品");
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                FenLeiBean2 fenLeiBean = new Gson().fromJson(response.body().string(), FenLeiBean2.class);
+                fenleiList2.addAll(fenLeiBean.datas.class_list);
+            }
+        });
     }
 
+    //网络请求 获取左边listview的名字
+    private void initDataLeft() {
+        UrlUtile.sendOkHttpRequest(zuoPath, new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                FenLeiBean fenLeiBean = new Gson().fromJson(response.body().string(), FenLeiBean.class);
+                fenleiList.addAll(fenLeiBean.datas.class_list);
+                for (FenLeiBean.DatasBean.ClassListBean bean:fenleiList) {
+                    String gc_id = bean.getGc_id();
+                    fenleiIDList.add(gc_id);
+                }
+            }
+        });
+    }
+
+//    private void init1() {
+//        for (int i = 0; i < 10; i++) {
+//            list1.add("数据" + i);
+//        }
+//    }
+//
+//    private void init2() {
+//        for (int i = 0; i < 10; i++) {
+//            list2.add("不一样的数据" + i);
+//        }
+//    }
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState)
-    {
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         //点击扫描二维码
         on_erweima_fenlei.setOnClickListener(new View.OnClickListener() {

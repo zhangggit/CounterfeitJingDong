@@ -10,6 +10,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.zhanggang.counterfeitjingdong.R;
+import com.example.zhanggang.counterfeitjingdong.model.bean.FenLeiBean;
+import com.example.zhanggang.counterfeitjingdong.model.bean.FenLeiBean2;
 
 import java.util.List;
 
@@ -25,12 +27,14 @@ import butterknife.ButterKnife;
 public class FenLeiRightAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     Context context;
-    List<String> list;
+    List<FenLeiBean2.DatasBean.ClassListBean> list;
     GridView gridview;
+    List<FenLeiBean.DatasBean.ClassListBean> fenleiList;
 
-    public FenLeiRightAdapter(Context context, List<String> list) {
+    public FenLeiRightAdapter(Context context,List<FenLeiBean2.DatasBean.ClassListBean> list,List<FenLeiBean.DatasBean.ClassListBean> fenleiList) {
         this.context = context;
         this.list = list;
+        this.fenleiList=fenleiList;
     }
 
     @Override
@@ -46,7 +50,7 @@ public class FenLeiRightAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
                 view= LayoutInflater.from(parent.getContext()).inflate(R.layout.fenlei_right_item2, parent, false);
                 holder= new ViewHolder2(view);
                 gridview=view.findViewById(R.id.fenlei_right_gridview);
-                FenLeiGridViewAdapter gridViewAdapter = new FenLeiGridViewAdapter(context,list);
+                FenLeiGridViewAdapter gridViewAdapter = new FenLeiGridViewAdapter(context,fenleiList);
                 gridview.setAdapter(gridViewAdapter);
                 break;
         }
@@ -56,10 +60,10 @@ public class FenLeiRightAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         if (holder instanceof ViewHolder){
-            ViewHolder mholder= (ViewHolder) holder;
+
         }else if (holder instanceof ViewHolder2){
             ViewHolder2 mholder= (ViewHolder2) holder;
-            mholder.textView.setText(list.get(position));
+            mholder.textView.setText(list.get(position).gc_name);
         }
     }
 
