@@ -28,7 +28,6 @@ public class FenLeiRightAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
     Context context;
     List<FenLeiBean2.DatasBean.ClassListBean> list;
-    GridView gridview;
     List<FenLeiBean.DatasBean.ClassListBean> fenleiList;
 
     public FenLeiRightAdapter(Context context,List<FenLeiBean2.DatasBean.ClassListBean> list,List<FenLeiBean.DatasBean.ClassListBean> fenleiList) {
@@ -49,7 +48,7 @@ public class FenLeiRightAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             case 1:
                 view= LayoutInflater.from(parent.getContext()).inflate(R.layout.fenlei_right_item2, parent, false);
                 holder= new ViewHolder2(view);
-                gridview=view.findViewById(R.id.fenlei_right_gridview);
+                GridView gridview=view.findViewById(R.id.fenlei_right_gridview);
                 FenLeiGridViewAdapter gridViewAdapter = new FenLeiGridViewAdapter(context,fenleiList);
                 gridview.setAdapter(gridViewAdapter);
                 break;

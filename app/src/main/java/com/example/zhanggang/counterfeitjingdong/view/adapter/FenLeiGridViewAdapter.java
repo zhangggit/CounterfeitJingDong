@@ -61,7 +61,7 @@ public class FenLeiGridViewAdapter extends BaseAdapter {
         String imagestring = fenleiList.get(i).image;
         String replaceAll = imagestring.replaceAll("127.0.0.1", "169.254.60.203");
         Log.e("TAG", "getView: "+replaceAll);
-//        Glide.with(context).load(replaceAll).into(holder.imageView);
+        Glide.with(context).load(replaceAll).into(holder.imageView);
         return view;
     }
     class ViewHolder{

@@ -44,8 +44,6 @@ public class FenLeiFragment extends QRCodeScanFragment {
     ListView listView;
     @BindView(R.id.main_right_rv)
     RecyclerView recyclerView;
-//    List<String> list1 = new ArrayList<>();
-//    List<String> list2 = new ArrayList<>();
     private FenLeiRightAdapter rightAdapter;
     private FenLeiLeftAdapter leftAdapter;
 
@@ -72,8 +70,6 @@ public class FenLeiFragment extends QRCodeScanFragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
-
                 if (i % 2 == 0) {
                     rightAdapter = new FenLeiRightAdapter(getActivity(), fenleiList2,fenleiList);
                     recyclerView.setAdapter(rightAdapter);
@@ -87,8 +83,6 @@ public class FenLeiFragment extends QRCodeScanFragment {
                 leftAdapter.notifyDataSetChanged();
             }
         });
-//        init1();
-//        init2();
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(linearLayoutManager);
@@ -132,17 +126,6 @@ public class FenLeiFragment extends QRCodeScanFragment {
         });
     }
 
-//    private void init1() {
-//        for (int i = 0; i < 10; i++) {
-//            list1.add("数据" + i);
-//        }
-//    }
-//
-//    private void init2() {
-//        for (int i = 0; i < 10; i++) {
-//            list2.add("不一样的数据" + i);
-//        }
-//    }
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
