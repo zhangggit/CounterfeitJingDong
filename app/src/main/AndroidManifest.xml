@@ -48,14 +48,14 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-        <activity android:name=".view.activity.GouWuCheJiShuActivity"></activity>
-
+        <activity android:name=".view.activity.GouWuCheJiShuActivity" />
 
         <meta-data
             android:name="UMENG_APPKEY"
-            android:value="561cae6ae0f55abd990035bf">
+            android:value="561cae6ae0f55abd990035bf" />
 
-        </meta-data>
+        <activity android:name=".view.activity.Register2Activity" />
+        <activity android:name=".view.activity.Regiter3Activity"></activity>
     </application>
 
 </manifest>

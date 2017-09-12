@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.zhanggang.counterfeitjingdong.view.activity.RegisterActivity">
+    tools:context="com.example.zhanggang.counterfeitjingdong.view.activity.Regiter3Activity">
 
     <RelativeLayout
-        android:id="@+id/relativelayout1_zhuce"
+        android:id="@+id/relativelayout1_zhuce3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="5dp">
@@ -37,55 +37,41 @@
     </RelativeLayout>
 
     <TextView
-        android:id="@+id/textview1_zhuce"
+        android:id="@+id/textview1_zhuce2"
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:background="#635f60"
-        android:layout_below="@+id/relativelayout1_zhuce"/>
+        android:layout_below="@+id/relativelayout1_zhuce3"/>
 
     <LinearLayout
-        android:id="@+id/linearlayout_zhuce"
+        android:id="@+id/linearlayout_zhuce3"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:orientation="horizontal"
         android:padding="10dp"
-        android:layout_below="@+id/textview1_zhuce">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="7"
-            android:gravity="center_vertical"
-            android:text="+86"/>
+        android:layout_below="@+id/textview1_zhuce2">
+
         <EditText
-            android:id="@+id/edtext_shoujihao"
+            android:id="@+id/edtext_yanzhenma"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:hint="请输入手机号"/>
+            android:hint="请输入验证码"/>
     </LinearLayout>
     <LinearLayout
-        android:id="@+id/linearlayout2_zhuce"
+        android:id="@+id/linearlayout2_zhuce3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/linearlayout_zhuce"
+        android:layout_below="@+id/linearlayout_zhuce3"
         android:padding="10dp">
         <Button
-            android:id="@+id/xiayibu_zhuce"
+            android:id="@+id/xiayibu_zhuce2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="下一步"
-            android:onClick="on_xiayibu_zhuce"
+            android:text="完成"
+            android:onClick="on_xiayibu_zhuce3"
             android:background="@drawable/dengluanniu"
             />
     </LinearLayout>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="遇到问题？您可以联系客服"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="10dp"
-        android:layout_below="@+id/linearlayout2_zhuce"/>
-
 
 </RelativeLayout>

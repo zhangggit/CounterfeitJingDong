@@ -3,14 +3,11 @@ package com.example.zhanggang.counterfeitjingdong.view.fragment;
 import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.example.zhanggang.counterfeitjingdong.R;
 import com.example.zhanggang.counterfeitjingdong.view.activity.GouWuCheJiShuActivity;
 import com.example.zhanggang.counterfeitjingdong.view.adapter.GouWuCheRecyclerAdapter;
@@ -27,6 +24,7 @@ import butterknife.ButterKnife;
  * 时  间：2017/9/7 - 15:30.
  * 创建人：张刚
  */
+
 public class GouWuCheFragment extends Fragment implements XRecyclerView.LoadingListener {
 
     @BindView(R.id.recyclerview_gouwuche)
@@ -65,8 +63,6 @@ public class GouWuCheFragment extends Fragment implements XRecyclerView.LoadingL
                 startActivity(intent);
             }
         });
-
-
     }
 
     private void init() {

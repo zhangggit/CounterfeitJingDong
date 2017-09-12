@@ -52,7 +52,6 @@ public class DengLuActivity extends AppCompatActivity {
     //QQ登陆
     public void on_qqdenglu(View view) {
         UMShareAPI.get(this).getPlatformInfo(DengLuActivity.this, SHARE_MEDIA.QQ, umAuthListener);
-
     }
     //集成QQ
     private UMAuthListener umAuthListener = new UMAuthListener() {
