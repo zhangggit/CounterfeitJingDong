@@ -35,7 +35,11 @@
                 android:layout_height="wrap_content" />
         </RadioGroup>
     </LinearLayout>
-
+    <GridView
+        android:id="@+id/shouye_gridview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numColumns="2"/>
 
 
 

@@ -9,11 +9,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.GridView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.example.zhanggang.counterfeitjingdong.R;
 import com.example.zhanggang.counterfeitjingdong.model.GlideImageLoader;
+import com.example.zhanggang.counterfeitjingdong.view.adapter.ShouYeGridAdapter;
 import com.example.zhanggang.counterfeitjingdong.view.adapter.ShouYeViewPagerAdapter;
 import com.youth.banner.Banner;
 
@@ -37,6 +39,9 @@ public class ShouYeFragment extends Fragment {
     RadioGroup radioGroup;
     private List<String> images = new ArrayList<>();
     private List<Fragment> list = new ArrayList<>();
+    @BindView(R.id.shouye_gridview)
+    GridView gridView;
+    List<String> list_grid = new ArrayList<>();
 
     @Nullable
     @Override
@@ -47,6 +52,12 @@ public class ShouYeFragment extends Fragment {
         setImages();
         setBanner(view);
         setFragment();
+
+        for (int i = 0; i < 10; i++) {
+            list_grid.add("首页"+i);
+        }
+        ShouYeGridAdapter gridAdapter = new ShouYeGridAdapter(getActivity(),list_grid);
+        gridView.setAdapter(gridAdapter);
 
         return view;
     }
