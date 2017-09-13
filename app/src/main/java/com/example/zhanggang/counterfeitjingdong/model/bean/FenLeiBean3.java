@@ -4,19 +4,27 @@ import java.util.List;
 
 /**
  * 类作用：
- * 时  间：2017/9/12 - 14:23.
+ * 时  间：2017/9/12 - 23:11.
  * 创建人：张刚
  */
 
-public class FenLeiBean2 {
+public class FenLeiBean3 {
 
     /**
      * code : 200
-     * datas : {"class_list":[{"gc_id":"4","gc_name":"女装"},{"gc_id":"5","gc_name":"男装"},{"gc_id":"6","gc_name":"内衣"},{"gc_id":"7","gc_name":"运动"},{"gc_id":"8","gc_name":"女鞋"},{"gc_id":"9","gc_name":"男鞋"},{"gc_id":"10","gc_name":"配饰"},{"gc_id":"11","gc_name":"童装"}]}
+     * datas : {"class_list":[{"gc_id":"156","gc_name":"钱包/卡包"},{"gc_id":"157","gc_name":"手拿包"},{"gc_id":"158","gc_name":"单肩包"},{"gc_id":"159","gc_name":"双肩包"},{"gc_id":"160","gc_name":"手提包"},{"gc_id":"161","gc_name":"斜挎包"}]}
      */
 
-    public int code;
-    public DatasBean datas;
+    private int code;
+    private DatasBean datas;
+
+    public int getCode() {
+        return code;
+    }
+
+    public void setCode(int code) {
+        this.code = code;
+    }
 
     public DatasBean getDatas() {
         return datas;
@@ -27,7 +35,7 @@ public class FenLeiBean2 {
     }
 
     public static class DatasBean {
-        public List<ClassListBean> class_list;
+        private List<ClassListBean> class_list;
 
         public List<ClassListBean> getClass_list() {
             return class_list;
@@ -39,11 +47,12 @@ public class FenLeiBean2 {
 
         public static class ClassListBean {
             /**
-             * gc_id : 4
-             * gc_name : 女装
+             * gc_id : 156
+             * gc_name : 钱包/卡包
              */
-            public String gc_id;
-            public String gc_name;
+
+            private String gc_id;
+            private String gc_name;
 
             public String getGc_id() {
                 return gc_id;

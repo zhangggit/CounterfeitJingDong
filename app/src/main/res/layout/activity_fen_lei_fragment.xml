@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context="com.example.zhanggang.counterfeitjingdong.view.fragment.FenLeiFragment">
 
     <RelativeLayout
@@ -34,6 +33,7 @@
             android:layout_alignParentRight="true"/>
 
     </RelativeLayout>
+
     <TextView
         android:id="@+id/fenlei_henxian"
         android:layout_width="match_parent"
@@ -43,19 +43,26 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_below="@+id/fenlei_henxian"
         android:orientation="horizontal">
-        <ListView
-            android:id="@+id/main_left_rv"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"/>
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/main_right_rv"
-            android:background="#FFF"
+        <q.rorbin.verticaltablayout.VerticalTabLayout
+            android:id="@+id/tablayout_fenlei"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:background="#EDEDED"
+            app:indicator_color="#FFFFFF"
+            app:indicator_gravity="fill"
+            app:tab_height="80dp"
+            app:tab_mode="scrollable" />
+
+        <com.example.zhanggang.counterfeitjingdong.view.MyViewPager
+            android:id="@+id/viewpager_fenlei"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="match_parent"
+            />
+
     </LinearLayout>
 
 </RelativeLayout>

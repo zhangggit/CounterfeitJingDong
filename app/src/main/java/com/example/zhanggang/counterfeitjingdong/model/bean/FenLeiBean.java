@@ -18,6 +18,22 @@ public class FenLeiBean {
     public int code;
     public DatasBean datas;
 
+    public int getCode() {
+        return code;
+    }
+
+    public void setCode(int code) {
+        this.code = code;
+    }
+
+    public DatasBean getDatas() {
+        return datas;
+    }
+
+    public void setDatas(DatasBean datas) {
+        this.datas = datas;
+    }
+
     public static class DatasBean {
         public List<ClassListBean> class_list;
 
@@ -53,6 +69,14 @@ public class FenLeiBean {
             public String text;
             public String type_id;
             public String type_name;
+
+            public String getGc_name() {
+                return gc_name;
+            }
+
+            public void setGc_name(String gc_name) {
+                this.gc_name = gc_name;
+            }
 
             public String getImage() {
                 return image;

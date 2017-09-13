@@ -3,18 +3,19 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/fenlei_right_text"
+    <ImageView
+        android:id="@+id/iv"
+        android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="qqqq"
-        android:gravity="center"/>
-
-    <GridView
-        android:id="@+id/fenlei_right_gridview"
-        android:layout_width="match_parent"
+        android:src="@mipmap/ic_launcher"
+        />
+    <TextView
+        android:id="@+id/tv"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:numColumns="3"
-        android:scrollbars="none"/>
+        android:text="休闲鞋"
+        />
 
 </LinearLayout>
