@@ -21,8 +21,9 @@
 
     <TextView
         android:id="@+id/shouye_item_jiesao"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginRight="70dp"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/shouye_item_name"
         android:text="￥198.00"

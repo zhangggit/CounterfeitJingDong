@@ -15,15 +15,22 @@ import android.widget.RadioGroup;
 
 import com.example.zhanggang.counterfeitjingdong.R;
 import com.example.zhanggang.counterfeitjingdong.model.GlideImageLoader;
+import com.example.zhanggang.counterfeitjingdong.model.UrlUtile;
+import com.example.zhanggang.counterfeitjingdong.model.bean.ShouYeGridData;
 import com.example.zhanggang.counterfeitjingdong.view.adapter.ShouYeGridAdapter;
 import com.example.zhanggang.counterfeitjingdong.view.adapter.ShouYeViewPagerAdapter;
+import com.google.gson.Gson;
 import com.youth.banner.Banner;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Response;
 
 /**
  * 类作用：首页 第一个页面
@@ -41,7 +48,9 @@ public class ShouYeFragment extends Fragment {
     private List<Fragment> list = new ArrayList<>();
     @BindView(R.id.shouye_gridview)
     GridView gridView;
-    List<String> list_grid = new ArrayList<>();
+
+    String urlPath="http://api.eleteam.com/v1/product/list-featured-topic";
+    List<ShouYeGridData.DataBean.ProductsBean> list_grid = new ArrayList<>();
 
     @Nullable
     @Override
@@ -52,14 +61,34 @@ public class ShouYeFragment extends Fragment {
         setImages();
         setBanner(view);
         setFragment();
-
-        for (int i = 0; i < 10; i++) {
-            list_grid.add("首页"+i);
-        }
-        ShouYeGridAdapter gridAdapter = new ShouYeGridAdapter(getActivity(),list_grid);
-        gridView.setAdapter(gridAdapter);
+        initLoad();
 
         return view;
+    }
+
+    private void initLoad() {
+        UrlUtile.sendOkHttpRequest(urlPath, new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                ShouYeGridData shouYeGridData = new Gson().fromJson(response.body().string(), ShouYeGridData.class);
+                list_grid.addAll(shouYeGridData.getData().getProducts());
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        //设置gridview适配器
+                        ShouYeGridAdapter gridAdapter = new ShouYeGridAdapter(getActivity(),list_grid);
+                        gridView.setAdapter(gridAdapter);
+                    }
+                });
+
+            }
+        });
+
     }
 
     @Override
@@ -90,8 +119,9 @@ public class ShouYeFragment extends Fragment {
 
             }
         });
-    }
 
+    }
+    //设置两个滑动viewpager的fragment
     private void setFragment() {
         SYViewPagerFragment1 syViewPagerFragment1 = new SYViewPagerFragment1();
         SYViewPagerFragment2 syViewPagerFragment2 = new SYViewPagerFragment2();
@@ -110,7 +140,7 @@ public class ShouYeFragment extends Fragment {
         //banner设置方法全部调用完毕时最后调用
         banner.start();
     }
-    //设置图片集合
+    //设置banner轮播的图片集合
     private void setImages() {
         images.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1504780311979&di=b34a790a363061b61ebbdc4cdcb05526&imgtype=0&src=http%3A%2F%2Fpicyun.90sheji.com%2Fdesign%2F00%2F03%2F49%2F64%2Fs_1024_54ed221172712.jpg");
         images.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1504780311979&di=881b57bc4fe86eed1b6bbbef701d6e9d&imgtype=0&src=http%3A%2F%2Fp7.zbjimg.com%2Fservice%2F2016-05%2F07%2Fservice%2F572d53d6aa29c.jpg");
