@@ -64,7 +64,13 @@ public class FenLeiFragment extends QRCodeScanFragment {
                 List<FenLeiBean.DatasBean.ClassListBean> class_list = fenLeiBean.getDatas().class_list;//获取左边tablayout的内容集合
                 adapter = new MyPageAdapter_fenlei(getChildFragmentManager(), class_list);
                 viewPager.setAdapter(adapter);
-                tabLayout.setupWithViewPager(viewPager);
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        tabLayout.setupWithViewPager(viewPager);
+                    }
+                });
+
             }
         });
         return view;

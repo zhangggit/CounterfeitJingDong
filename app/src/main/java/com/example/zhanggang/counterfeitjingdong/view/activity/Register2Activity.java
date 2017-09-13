@@ -21,7 +21,6 @@ import okhttp3.Response;
 
 public class Register2Activity extends AppCompatActivity {
 
-    @BindView(R.id.edtext_mima)
     EditText editText;
     private String shoujihao;
 
@@ -29,7 +28,9 @@ public class Register2Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register2);
-        ButterKnife.bind(this);
+
+        editText= (EditText) findViewById(R.id.edtext_mima);
+
         //获取传过来的手机号
         Intent intent = getIntent();
         shoujihao = intent.getStringExtra("shoujihao");
@@ -51,7 +52,7 @@ public class Register2Activity extends AppCompatActivity {
                 if (code==1){
                     Intent intent=new Intent(Register2Activity.this,Regiter3Activity.class);
                     //将手机号和密码存入intent
-                    intent.putExtra("shoujihao",shoujihao);
+                    intent.putExtra("shoujihao1",shoujihao);
                     intent.putExtra("mima",editText.getText().toString());
                     startActivity(intent);
                 }
