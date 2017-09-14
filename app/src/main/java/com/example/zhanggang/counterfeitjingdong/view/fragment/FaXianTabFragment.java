@@ -68,8 +68,7 @@ public class FaXianTabFragment extends Fragment implements XRecyclerView.Loading
             }
 
             @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                FaXianBean faXianBean = new Gson().fromJson(response.body().string(), FaXianBean.class);
+            public void onResponse(Call call, Response response) throws IOException {FaXianBean faXianBean = new Gson().fromJson(response.body().string(), FaXianBean.class);
                 list1.addAll(faXianBean.data.products);
             }
         });

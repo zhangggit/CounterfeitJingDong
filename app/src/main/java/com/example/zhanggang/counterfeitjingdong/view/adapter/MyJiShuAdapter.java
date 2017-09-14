@@ -9,7 +9,9 @@ import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.zhanggang.counterfeitjingdong.R;
+import com.example.zhanggang.counterfeitjingdong.model.bean.GouWuData;
 
 import java.util.HashMap;
 import java.util.List;
@@ -27,7 +29,7 @@ import butterknife.ButterKnife;
 
 public class MyJiShuAdapter extends RecyclerView.Adapter<MyJiShuAdapter.ViewHolder>  {
 
-    List<String> list;
+    List<GouWuData.GoodsListBean> list;
     HashMap<Integer, Boolean> hashMap;
     Context context;
 
@@ -36,7 +38,7 @@ public class MyJiShuAdapter extends RecyclerView.Adapter<MyJiShuAdapter.ViewHold
         this.counter1 = counter1;
     }
 
-    public MyJiShuAdapter(List<String> list, HashMap<Integer, Boolean> hashMap, Context context) {
+    public MyJiShuAdapter(List<GouWuData.GoodsListBean> list, HashMap<Integer, Boolean> hashMap, Context context) {
         this.list = list;
         this.hashMap = hashMap;
         this.context = context;
@@ -50,8 +52,10 @@ public class MyJiShuAdapter extends RecyclerView.Adapter<MyJiShuAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
-        holder.shangping.setText(list.get(position));
-        holder.gouwujishu_imageview.setImageResource(R.drawable.timg);
+        holder.shangping.setText(list.get(position).goods_name);
+        holder.jiage.setText("￥"+list.get(position).normal_price);
+        Glide.with(context).load(list.get(position).image_url).into(holder.gouwujishu_imageview);
+//        holder.gouwujishu_imageview.setImageResource(R.drawable.timg);
         holder.checkBox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -87,12 +91,13 @@ public class MyJiShuAdapter extends RecyclerView.Adapter<MyJiShuAdapter.ViewHold
     }
 
     //反选方法
-    public void selectFan() {
+    public Set<Map.Entry<Integer, Boolean>> selectFan() {
         Set<Map.Entry<Integer, Boolean>> entries = hashMap.entrySet();
         for (Map.Entry<Integer, Boolean> bean : entries) {
             bean.setValue(!bean.getValue());
             notifyDataSetChanged();
         }
+        return entries;
     }
     //接口 用于点击多选框时 计算多选框选中的数量
     public interface countener{
@@ -109,6 +114,8 @@ public class MyJiShuAdapter extends RecyclerView.Adapter<MyJiShuAdapter.ViewHold
         ImageView gouwujishu_imageview;
         @BindView(R.id.shangping)
         TextView shangping;
+        @BindView(R.id.jiage)
+        TextView jiage;
         CheckBox checkBox;
 
         public ViewHolder(View itemView) {

@@ -6,8 +6,8 @@
 
     <ImageView
         android:id="@+id/gouwujishu_imageview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:src="@mipmap/ic_launcher" />
@@ -22,7 +22,7 @@
         >
         <TextView
             android:id="@+id/shangping"
-            android:layout_width="wrap_content"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
@@ -33,6 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
+            android:textColor="#a12a09"
             android:text="价格￥：10" />
     </LinearLayout>
 
