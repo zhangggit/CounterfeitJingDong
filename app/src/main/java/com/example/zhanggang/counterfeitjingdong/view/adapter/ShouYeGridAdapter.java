@@ -46,17 +46,17 @@ public class ShouYeGridAdapter extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        ViewHolder holder=null;
-        if (view==null){
-            view=View.inflate(context, R.layout.shouye_grid_item,null);
-            holder=new ViewHolder();
+        ViewHolder holder = null;
+        if (view == null) {
+            view = View.inflate(context, R.layout.shouye_grid_item, null);
+            holder = new ViewHolder();
             //获取控件
-            holder.textView=view.findViewById(R.id.shouye_item_name);
-            holder.textView2=view.findViewById(R.id.shouye_item_jiesao);
-            holder.imageView=view.findViewById(R.id.shouye_item_image);
+            holder.textView = view.findViewById(R.id.shouye_item_name);
+            holder.textView2 = view.findViewById(R.id.shouye_item_jiesao);
+            holder.imageView = view.findViewById(R.id.shouye_item_image);
             view.setTag(holder);
-        }else {
-            holder= (ViewHolder) view.getTag();
+        } else {
+            holder = (ViewHolder) view.getTag();
         }
         //赋值
         holder.textView.setText(list.get(i).name);
@@ -64,9 +64,10 @@ public class ShouYeGridAdapter extends BaseAdapter {
         Glide.with(context).load(list.get(i).image_small).into(holder.imageView);
         return view;
     }
+
     //内部类
-    class ViewHolder{
-        TextView textView,textView2;
+    class ViewHolder {
+        TextView textView, textView2;
         ImageView imageView;
     }
 }

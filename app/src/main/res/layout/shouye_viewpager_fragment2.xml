@@ -12,27 +12,27 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/huochepiao" />
+            android:src="@drawable/qiye" />
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/huochepiao"/>
+            android:src="@drawable/baitiao"/>
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/huochepiao"/>
+            android:src="@drawable/jipiaohuochepiao"/>
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/huochepiao" />
+            android:src="@drawable/jingdongdaojia" />
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/huochepiao"/>
+            android:src="@drawable/wodeguanzhuu"/>
     </LinearLayout>
 
     <LinearLayout
@@ -87,27 +87,27 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/huochepiao" />
+            android:src="@drawable/aoerma" />
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/huochepiao" />
+            android:src="@drawable/lingjingdou" />
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/huochepiao" />
+            android:src="@drawable/jingdongzhineng" />
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/huochepiao" />
+            android:src="@drawable/lvyou" />
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/huochepiao" />
+            android:src="@drawable/quanbu" />
     </LinearLayout>
 
 
