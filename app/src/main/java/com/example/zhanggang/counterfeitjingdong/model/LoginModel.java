@@ -30,7 +30,7 @@ public class LoginModel {
     }
 
     public void getLoginData(@NonNull final DengLuDataCallBack<DengLu> dengLuDengLuDataCallBack) {
-        Log.e("TAGGGGG", "getLoginData: "+"phone"+phone+"```````````````pwd"+pwd);
+//        Log.e("TAGGGGG", "getLoginData: "+"phone"+phone+"```````````````pwd"+pwd);
         String urlPath = "http://api.eleteam.com/v1/user/login?mobile=" + phone + "&password=" + pwd;
         UrlUtile.sendOkHttpRequest(urlPath, new Callback() {
             @Override
