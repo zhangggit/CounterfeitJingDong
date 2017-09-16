@@ -2,7 +2,6 @@ package com.example.zhanggang.counterfeitjingdong.view.adapter;
 
 import android.app.Activity;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +12,6 @@ import com.example.zhanggang.counterfeitjingdong.R;
 import com.example.zhanggang.counterfeitjingdong.model.UrlUtile;
 import com.example.zhanggang.counterfeitjingdong.model.bean.FenLeiBean2;
 import com.example.zhanggang.counterfeitjingdong.model.bean.FenLeiBean3;
-import com.example.zhanggang.counterfeitjingdong.view.MyGrideView;
 import com.google.gson.Gson;
 
 import java.io.IOException;

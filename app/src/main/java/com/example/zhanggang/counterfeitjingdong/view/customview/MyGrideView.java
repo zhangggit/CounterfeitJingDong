@@ -1,4 +1,4 @@
-package com.example.zhanggang.counterfeitjingdong.view;
+package com.example.zhanggang.counterfeitjingdong.view.customview;
 
 import android.content.Context;
 import android.util.AttributeSet;

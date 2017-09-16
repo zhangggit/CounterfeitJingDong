@@ -5,55 +5,56 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.zhanggang.counterfeitjingdong.view.fragment.GouWuCheFragment"
-    >
-
+    tools:context="com.example.zhanggang.counterfeitjingdong.view.fragment.GouWuCheFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="45dp"
-        >
+        android:layout_height="45dp">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="购物车"
-            android:gravity="center"
             android:layout_centerVertical="true"
-            android:textSize="20sp"/>
+            android:gravity="center"
+            android:text="购物车"
+            android:textSize="20sp" />
+
         <ImageView
             android:id="@+id/gouwuche_kefu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/a9s"
+            android:layout_alignParentRight="true"
             android:layout_marginRight="10dp"
-            android:layout_alignParentRight="true"/>
+            android:src="@drawable/a9s" />
     </RelativeLayout>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="3dp"
-        android:background="#4d514f"/>
+        android:background="#4d514f" />
 
     <ScrollView
         android:id="@+id/scrollview_gwc"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-            <com.example.zhanggang.counterfeitjingdong.view.MyListView
+
+            <com.example.zhanggang.counterfeitjingdong.view.customview.MyListView
                 android:id="@+id/gouwuche_listview"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content" />
 
             <com.jcodecraeer.xrecyclerview.XRecyclerView
                 android:id="@+id/recyclerview_gouwuche"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent" />
         </LinearLayout>
 
     </ScrollView>
-
 
 
 </LinearLayout>

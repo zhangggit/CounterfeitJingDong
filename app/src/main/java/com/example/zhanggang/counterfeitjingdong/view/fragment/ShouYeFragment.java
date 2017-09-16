@@ -1,43 +1,37 @@
 package com.example.zhanggang.counterfeitjingdong.view.fragment;
 
+import android.content.Context;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-
 import com.example.zhanggang.counterfeitjingdong.R;
 import com.example.zhanggang.counterfeitjingdong.model.GlideImageLoader;
-import com.example.zhanggang.counterfeitjingdong.model.UrlUtile;
 import com.example.zhanggang.counterfeitjingdong.model.bean.ShouYeGridData;
+import com.example.zhanggang.counterfeitjingdong.presenter.GetNetworkDataPresenter;
+import com.example.zhanggang.counterfeitjingdong.view.IView.IGetNetworkData;
 import com.example.zhanggang.counterfeitjingdong.view.adapter.ShouYeGridAdapter;
 import com.example.zhanggang.counterfeitjingdong.view.adapter.ShouYeViewPagerAdapter;
-import com.google.gson.Gson;
 import com.youth.banner.Banner;
-
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.Response;
 
 /**
  * 类作用：首页 第一个页面
  * 时  间：2017/9/7 - 15:30.
  * 创建人：张刚
  */
-public class ShouYeFragment extends Fragment {
+
+//实现View层接口
+public class ShouYeFragment extends Fragment implements IGetNetworkData{
 
     private Banner banner;
     @BindView(R.id.viewpager_shouye)
@@ -49,9 +43,6 @@ public class ShouYeFragment extends Fragment {
     @BindView(R.id.shouye_gridview)
     GridView gridView;
 
-    String urlPath="http://api.eleteam.com/v1/product/list-featured-topic";
-    List<ShouYeGridData.DataBean.ProductsBean> list_grid = new ArrayList<>();
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -61,34 +52,8 @@ public class ShouYeFragment extends Fragment {
         setImages();
         setBanner(view);
         setFragment();
-        initLoad();
 
         return view;
-    }
-
-    private void initLoad() {
-        UrlUtile.sendOkHttpRequest(urlPath, new Callback() {
-            @Override
-            public void onFailure(Call call, IOException e) {
-
-            }
-
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                ShouYeGridData shouYeGridData = new Gson().fromJson(response.body().string(), ShouYeGridData.class);
-                list_grid.addAll(shouYeGridData.getData().getProducts());
-                getActivity().runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        //设置gridview适配器
-                        ShouYeGridAdapter gridAdapter = new ShouYeGridAdapter(getActivity(),list_grid);
-                        gridView.setAdapter(gridAdapter);
-                    }
-                });
-
-            }
-        });
-
     }
 
     @Override
@@ -119,6 +84,9 @@ public class ShouYeFragment extends Fragment {
 
             }
         });
+        //创建Presenter
+        GetNetworkDataPresenter getNetworkDataPresenter = new GetNetworkDataPresenter(this);
+        getNetworkDataPresenter.getNetWorkData();
 
     }
     //设置两个滑动viewpager的fragment
@@ -150,5 +118,30 @@ public class ShouYeFragment extends Fragment {
         images.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1504780311979&di=ed2f0a45d3007f733a1bfdc460976b2b&imgtype=0&src=http%3A%2F%2Fimages2015.cnblogs.com%2Fblog%2F1046195%2F201610%2F1046195-20161028141024062-613721819.png");
         images.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1504780311978&di=89faa4b9459c01c05aa377d0d531352a&imgtype=0&src=http%3A%2F%2Fpic118.nipic.com%2Ffile%2F20161215%2F20494655_204817750001_2.jpg");
         images.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1504780311977&di=d3579c25eb74b8b60b17c2eea10251ce&imgtype=0&src=http%3A%2F%2Fimg.aiimg.com%2Fuploads%2Fallimg%2F150711%2F1-150G1121R8.jpg");
+    }
+
+    @Override
+    public Context context() {
+        return getActivity();
+    }
+
+    @Override
+    public void OnGetNetworkDataSucced(final ShouYeGridData shouYeGridData) {
+        getActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                //从对象中获取要用到的集合
+                List<ShouYeGridData.DataBean.ProductsBean> products = shouYeGridData.getData().getProducts();
+                //设置适配器
+                ShouYeGridAdapter gridAdapter = new ShouYeGridAdapter(getActivity(),products);
+                gridView.setAdapter(gridAdapter);
+            }
+        });
+
+    }
+
+    @Override
+    public void OnGetNetworkDataFailed(String ex) {
+
     }
 }

@@ -1,4 +1,4 @@
-package com.example.zhanggang.counterfeitjingdong.view;
+package com.example.zhanggang.counterfeitjingdong.view.customview;
 
 import android.content.Context;
 import android.support.v4.view.ViewPager;

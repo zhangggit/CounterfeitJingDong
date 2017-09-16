@@ -48,11 +48,11 @@ public class GouWuCheFragment extends Fragment implements XRecyclerView.LoadingL
     List<GouWuData.GoodsListBean> list = new ArrayList<>();
     private GouWuCheRecyclerAdapter adapter;
 
-    List<GouWuHuiDiao> list1=new ArrayList<>();
+    List<GouWuHuiDiao> list1 = new ArrayList<>();
     @BindView(R.id.gouwuche_listview)
     ListView listView;
-    String urlPath="http://apiv3.yangkeduo.com/v5/newlist?page=1&%20size=";
-    int size=1;
+    String urlPath = "http://apiv3.yangkeduo.com/v5/newlist?page=1&%20size=";
+    int size = 1;
 
     @Nullable
     @Override
@@ -72,7 +72,7 @@ public class GouWuCheFragment extends Fragment implements XRecyclerView.LoadingL
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 2);
         recyclerView.setLayoutManager(gridLayoutManager);
 
-        adapter = new GouWuCheRecyclerAdapter(getActivity(),list);
+        adapter = new GouWuCheRecyclerAdapter(getActivity(), list);
         recyclerView.setAdapter(adapter);
 
         recyclerView.setLoadingListener(this);
@@ -107,9 +107,10 @@ public class GouWuCheFragment extends Fragment implements XRecyclerView.LoadingL
             }
         });
     }
+
     //网络请求
     private void init() {
-        UrlUtile.sendOkHttpRequest(urlPath+size, new Callback() {
+        UrlUtile.sendOkHttpRequest(urlPath + size, new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
 

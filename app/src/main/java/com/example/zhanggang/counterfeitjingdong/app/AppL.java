@@ -1,6 +1,7 @@
-package com.example.zhanggang.counterfeitjingdong.model;
+package com.example.zhanggang.counterfeitjingdong.app;
 
 import android.app.Application;
+import android.content.Context;
 
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
@@ -19,6 +20,7 @@ public class AppL extends Application {
         PlatformConfig.setQQZone("100424468", "c7394704798a158208a74ab60104f0ba");
         PlatformConfig.setSinaWeibo("3921700954", "04b48b094faeb16683c32669824ebdad", "http://sns.whalecloud.com");
     }
+    protected static Context appContext;
     @Override
     public void onCreate() {
         super.onCreate();
@@ -26,6 +28,10 @@ public class AppL extends Application {
         ImageLoaderConfiguration configuration=new ImageLoaderConfiguration.Builder(this)
                 .build();
         ImageLoader.getInstance().init(configuration);
+        appContext=this;
+    }
+    public static Context appContext(){
+        return appContext;
     }
 
 }

@@ -8,7 +8,7 @@
         android:id="@+id/text_title_fenlei"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
-    <com.example.zhanggang.counterfeitjingdong.view.MyGrideView
+    <com.example.zhanggang.counterfeitjingdong.view.customview.MyGrideView
         android:id="@+id/gridview_fenlei"
         android:background="#ffffff"
         android:layout_width="wrap_content"

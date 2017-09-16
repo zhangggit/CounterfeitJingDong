@@ -57,7 +57,7 @@
             app:tab_height="80dp"
             app:tab_mode="scrollable" />
 
-        <com.example.zhanggang.counterfeitjingdong.view.MyViewPager
+        <com.example.zhanggang.counterfeitjingdong.view.customview.MyViewPager
             android:id="@+id/viewpager_fenlei"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

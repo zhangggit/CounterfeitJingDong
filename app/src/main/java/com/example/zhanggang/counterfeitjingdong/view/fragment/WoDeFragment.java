@@ -39,10 +39,6 @@ public class WoDeFragment extends Fragment {
         View view = inflater.inflate(R.layout.activity_wo_de_fragment, container, false);
         ButterKnife.bind(this,view);
 
-
-
-
-
         //点击进入登陆页面
         touxiang.setOnClickListener(new View.OnClickListener() {
             @Override
